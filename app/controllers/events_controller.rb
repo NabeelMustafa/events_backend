@@ -13,6 +13,11 @@ class EventsController < ApplicationController
     json_response(@events)
   end
 
+  def user_info
+    @user = current_user
+    json_response(@user)
+  end
+  
   # POST /customers
   def create
     @event = current_user.events.create!(event_params)

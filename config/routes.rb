@@ -10,6 +10,5 @@ Rails.application.routes.draw do
 
   post 'authenticate', to: 'authentication#authenticate'
   get 'get-all-events', to: 'events#all_events'
-
-
+  get 'user-info', to: 'events#user_info'
 end
