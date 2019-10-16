@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_request, only: [:create]
 
   # GET /customers
   def index
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
 
   def user_params
     # whitelist params
-    params.permit(:email, :username, :password_digest, :primary_location)
+    params.permit(:email, :username, :password, :primary_location)
   end
 
   def set_user

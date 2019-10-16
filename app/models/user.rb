@@ -3,5 +3,5 @@ class User < ApplicationRecord
 
   has_many :events
 
-  validates_presence_of  :username, :password_digest
+  validates_presence_of  :username, :password
 end

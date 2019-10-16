@@ -1,10 +1,15 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :update, :destroy]
-  # before_action :authenticate_request
+  skip_before_action :authenticate_request, only: [:all_events]
 
   # GET /customers
   def index
     @events = current_user.events
+    json_response(@events)
+  end
+
+  def all_events
+    @events = Event.all
     json_response(@events)
   end
 
@@ -41,4 +46,5 @@ class EventsController < ApplicationController
   def set_event
     @event = current_user.events.find(params[:id])
   end
+
 end

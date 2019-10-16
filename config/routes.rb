@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :events
   post 'authenticate', to: 'authentication#authenticate'
+  get 'get-all-events', to: 'events#all_events'
 
 
 end
