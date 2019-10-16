@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
   resources :users
   resources :events
+
+  resources :events , shallow: true do
+    resources :tickets
+  end
+
   post 'authenticate', to: 'authentication#authenticate'
   get 'get-all-events', to: 'events#all_events'
 
